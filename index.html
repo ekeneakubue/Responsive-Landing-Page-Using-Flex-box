@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100&display=swap" rel="stylesheet">
+    <title>Frontend Mentor | Results summary component</title>
+    <style>
+      
+      :root{
+        /* Primary Color */
+        --Lighter-red: hsla(0, 33%, 94%);
+        --Light-red: hsl(0, 100%, 67%);
+        --Orangey-yellow: hsl(39, 100%, 56%);
+        --Lighter-orangey-yellow: hsla(39, 67%, 94%);
+        --Green-teal: hsl(166, 100%, 37%);
+        --Lighter-green-teal: hsla(166, 44%, 85%);
+        --Cobalt-blue: hsl(234, 85%, 45%);
+        --Lighter-cobalt-blue: hsla(234, 62%, 88%);
+        --Light-Black: hsl(0, 0%, 12%);
+        --Lighter-Black: hsl(0, 1%, 64%);
+
+
+        /* Gradients */
+        --Light-slate-blue: hsl(252, 100%, 67%);
+        --Light-royal-blue: hsl(241, 81%, 54%);
+        --Violet-blue: hsla(256, 72%, 46%, 1);
+        --Persian-blue: hsla(241, 72%, 46%, 0);
+
+        /* Neutral */
+        --White: hsl(0, 0%, 100%);
+        --Pale-blue: hsl(221, 100%, 96%);
+        --Light-lavender: hsl(241, 100%, 89%);
+        --Dark-gray-blue: hsl(224, 30%, 27%);
+      }
+      body{
+        padding: 0;
+        margin: 0;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+      }      
+      .result-board{
+        display: flex;
+        align-items: center;
+        width: 50%;   
+        border-radius: 30px;        
+        font-family: 'Hanken Grotesk', sans-serif;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .result{
+        background: linear-gradient(to bottom, var(--Light-slate-blue), var(--Light-royal-blue));
+        width: 50%;
+        height: 60vh;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-radius: 30px;
+      }
+      .result > p{
+        text-align: center;
+        font-size: 18px;
+        color: var(--Light-lavender);
+        margin: -1rem 0rem 2.2rem 0rem;
+      }
+      .circle{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to bottom, var(--Violet-blue), var(--Persian-blue));
+      }
+      .circle > .top{
+        font-size: 50px;        
+      }
+      .circle > .down{
+        color: var(--Light-lavender);
+      }
+      .great{
+        font-size: 20px;
+        letter-spacing: 2px;
+        font-weight: 800;
+        color: var(--White);
+        margin: 1.6rem 0rem 0.8rem 0rem;
+      }
+      .great-txt{
+        text-align: center;
+        font-size: 18px;
+        padding: 0rem 2rem;
+        color: var(--Light-lavender);
+        font-family: 'Hanken Grotesk', sans-serif;
+      }
+      .summary{
+        width: 50%;
+        height: 50vh;
+        padding: 0rem 2rem;
+      }
+      .summary > h2{
+        margin-top: -1.5rem;
+      }
+      .listing{
+        display: flex;        
+        justify-content: space-between;
+        background-color: aquamarine;
+        align-items: center;
+        height: 7vh;
+        padding: 0rem 1rem;
+        margin: 1rem 0rem;
+        border-radius: 10px;
+        /* border-top: 1px red solid; */
+        border-style: ridge red;
+      }
+      .listing .var{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+      .listing .var .item{
+        margin-top: -0.3rem;
+      }
+      .listing .value{
+        color: var(--Light-Black);
+      }
+      .listing .value span{
+        color: var(--Lighter-Black);
+      }
+      .reaction{
+        background-color: var(--Lighter-red);
+        color: var(--Light-red);
+      }
+      .memory{
+        background-color: var(--Lighter-orangey-yellow);
+        color: var(--Orangey-yellow);
+      }
+      .verbal{
+        background-color: var(--Lighter-green-teal);
+        color: var(--Green-teal);
+      }
+      .visual{
+        background-color: var(--Lighter-cobalt-blue);
+        color: var(--Cobalt-blue);
+      }
+      .button{
+        background-color: var(--Dark-gray-blue);
+        color: var(--White);
+        padding: 1rem;
+        border-radius: 30px;
+        text-align: center; 
+      }
+      .button:hover{
+        background-color: var(--Light-royal-blue);
+      }
+
+      /* Media Querry */
+      @media(max-width:667px){  
+        body{
+          padding: 0;
+          margin: 0;
+          width: 100vw;          
+        }      
+        .result-board{
+          padding: 0;
+          margin: 0;
+          flex-direction: column;
+          width: 96%;
+          border-radius: 0px;   
+          font-family: 'Hanken Grotesk', sans-serif;
+          box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .result{
+          width: 82%;
+          height: 100vh;
+          border-radius:0px 0px 30px 30px ;
+        }
+        .result > p{
+          text-align: center;
+          font-size: 16px;
+          color: var(--Light-lavender);
+          padding: 2rem;
+          margin: 15rem 0rem 0rem 0rem;
+        }
+        .summary{
+          width: 85%;
+          padding: 4rem 2rem 3rem 2rem;
+          border-radius: 0;
+        }
+        
+      }
+    </style>
+  </head>
+  <body>    
+    <div class="result-board">
+      <div class="result">
+        <p>Your Result</p>
+        <div class="circle">
+          <div class="top">76</div>
+          <div class="down">of 100</div>
+        </div>
+        <div class="great">Great</div>
+        <div class="great-txt">You scored higher than 65% of the people who have taken these tests.</div>
+      </div>
+      <div class="summary">
+        <h2>Summary</h2>
+        <div class="listing reaction">
+          <div class="var">
+            <div class="icon"><img src="assets/images/icon-reaction.svg" alt="icon-reaction"></div>
+            <div class="item">Reaction</div>
+          </div>
+          <div class="value">80 <span>/ 100</span></div>
+        </div>
+        <div class="listing memory">
+          <div class="var">
+            <div class="icon"><img src="assets/images/icon-memory.svg" alt="icon-memory"></div>
+            <div class="item">Memory</div>
+          </div>
+          <div class="value">92 <span>/ 100</span></div>
+        </div>
+        <div class="listing verbal">
+          <div class="var">
+            <div class="icon"><img src="assets/images/icon-verbal.svg" alt="icon-verbal"></div>
+            <div class="item">Verbal</div>
+          </div>
+          <div class="value">61 <span>/ 100</span></div>
+        </div>   
+        <div class="listing visual">
+          <div class="var">
+            <div class="icon"><img src="assets/images/icon-visual.svg" alt="icon-visual"></div>
+            <div class="item">Visual</div>
+          </div>
+          <div class="value">72 <span>/ 100</span></div>
+        </div>       
+        <br>
+        <div class="button">Continue</div>
+      </div>
+    </div>
+  </body>
+</html>
